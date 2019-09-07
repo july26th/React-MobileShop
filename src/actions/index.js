@@ -30,3 +30,10 @@ export const actFetchCategories = (categories) => {
         categories
     }
 }
+
+export const actFilterCategory = (filter) => {
+    return {
+        type: Types.FILTER_BY_CATEGORY,
+        filter: filter
+    }
+};

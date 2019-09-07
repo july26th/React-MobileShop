@@ -1,17 +1,37 @@
 import React, { Component } from "react";
-class Home extends Component {
-
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { actFetchProductsRequest, actFetchCategoriesRequest, actFilterCategory } from '../../actions/index';
+class CategoryFilter extends Component {
+    componentDidMount() {
+        this.props.fetchAllProducts();
+        this.props.fetchAllCategories();
+    }
+    onFilterCategory = (cate) => {
+       this.props.onFilterCategory(cate);
+    }
     render() {
+        const { products, categories, filters } = this.props;
+  
+        var categoriesList = "";
+        if (categories) {
+            categoriesList = categories.map((category, index) => {
+                return (
+                    <Link 
+                    //to={`/category/${category.category_name}`}
+                        onClick= {() => this.onFilterCategory(category.id)}
+                    key={index} >
+                        <img src={category.category_image} alt="" />
+                    </Link>
+                )
 
+            });
+        }
         return (
+
             <React.Fragment>
                 <div className="category-list d-flex py-3">
-                    <a href><img src="img/category/iphone.png" alt="" /></a>
-                    <a href><img src="img/category/samsung.png" alt="" /></a>
-                    <a href><img src="img/category/asus.png" alt="" /></a>
-                    <a href><img src="img/category/mobistar.png" alt="" /></a>
-                    <a href><img src="img/category/oppo.png" alt="" /></a>
-                    <a href><img src="img/category/wuawei.png" alt="" /></a>
+                    {categoriesList}
                 </div>
                 <div className="choose-price mb-3">
                     <span className="font-weight-bold">Chọn mức giá:</span>
@@ -38,6 +58,27 @@ class Home extends Component {
 
     }
 }
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+        categories: state.categories,
+        filters: state.filters
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAllProducts: () => {
+            dispatch(actFetchProductsRequest());
+        },
+        fetchAllCategories: () => {
+            dispatch(actFetchCategoriesRequest());
+        },
+        onFilterCategory: (cate) => {
+            dispatch(actFilterCategory(cate));
+        },
+    }
+}
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter);
+
 

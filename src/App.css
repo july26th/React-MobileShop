@@ -365,7 +365,7 @@ footer {
 /* CSS Category */
 .category-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .category-list a{
     width: 15%;
