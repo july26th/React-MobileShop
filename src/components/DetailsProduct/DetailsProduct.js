@@ -11,10 +11,6 @@ class DetailsProduct extends Component {
             const id = parseInt(match.params.id,10);
             this.props.onDetailsProduct(id);
         }
-        // if(this.props.match) {
-        //    // this.props.onDetailsProduct(parseInt(this.props.match.params, 10))
-        // /   console.log(parseInt(this.props.match.params, 10))
-        // }
     }
     render() {
         return (
@@ -24,7 +20,7 @@ class DetailsProduct extends Component {
                         <a className="breadcrumb-item" href="#">Trang chủ</a>
                         <a className="breadcrumb-item" href="#">Điện thoại</a>
                         <a className="breadcrumb-item" href="#">Iphone</a>
-                        <span className="breadcrumb-item active">Iphone XS</span>
+                        <span className="breadcrumb-item active">{this.props.details.product_name}</span>
                     </nav>
                 </div>
                 <TopDetails />
@@ -41,6 +37,11 @@ class DetailsProduct extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        details: state.details
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         onDetailsProduct: (id) => {
@@ -49,6 +50,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(DetailsProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsProduct);
 
 

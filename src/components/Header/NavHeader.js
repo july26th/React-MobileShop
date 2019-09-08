@@ -5,7 +5,7 @@ import { actFilterCategory } from '../../actions/index';
 class NavHeader extends Component {
     onFilterCategory = (cate) => {
         this.props.onFilterCategory(cate);
-     }
+    }
     render() {
 
         return (
@@ -17,34 +17,44 @@ class NavHeader extends Component {
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item active">
-                                <i className="fas fa-mobile-alt" />
                                 <NavLink className="nav-link" to="/category" onClick={() => this.onFilterCategory("All")}>
-                                    Điện thoại
+                                    <i className="fas fa-mobile-alt" />
+                                    <p>Điện thoại</p>
                                 </NavLink>
-                              
+
                             </li>
                             <li className="nav-item">
-                                <i className="fas fa-mobile-alt" />
-                                <a className="nav-link" href="#">Phụ kiện</a>
+                                <NavLink to="" className="nav-link">
+                                    <i className="fas fa-mobile-alt" />
+                                    <p>Phụ kiện</p>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <i className="fas fa-mobile-alt" />
-                                <a className="nav-link" href="#">Sửa chữa</a>
+                                <NavLink to="" className="nav-link">
+                                    <i className="fas fa-mobile-alt" />
+                                    <p>Sửa chữa</p>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <i className="fas fa-mobile-alt" />
-                                <a className="nav-link" href="#">Trả góp</a>
+                                <NavLink to="" className="nav-link">
+                                    <i className="fas fa-mobile-alt" />
+                                    <p>Trả góp</p>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
                 </nav>
                 <div className="hotline text-center">
-                    <p> <i className="fas fa-phone" /></p>
-                    <p> 097 457 1080</p>
+                    <NavLink to="" className="nav-link">
+                        <p> <i className="fas fa-phone" /></p>
+                        <p>1080</p>
+                    </NavLink>
                 </div>
                 <div className="cart text-center">
-                    <p> <i className="fas fa-shopping-cart" /></p>
-                    <p> Giỏ hàng</p>
+                    <NavLink to="/cart" className="nav-link">
+                        <p> <i className="fas fa-shopping-cart" /></p>
+                        <p> Giỏ hàng</p>
+                    </NavLink>
                 </div>
             </div>
         );

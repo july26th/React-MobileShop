@@ -73,12 +73,13 @@ nav  {
     color: #fff;
 }
 .nav-item .nav-link, .hotline p, .cart p {
-    padding: 0;
+    padding: 0 !important;
     margin-top: 2px;
     color: #fff !important;
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
+    text-align: center;
 }
 .hotline, .cart {
     height: 60px;
@@ -329,6 +330,9 @@ footer {
     width: 50%;
     background: #f8860a;
 }
+.details-page .btn-buy {
+    margin-right: 10px;
+}
 .btn-installment {
     background: #2889d6;
 }
@@ -450,13 +454,23 @@ footer {
     width: 49%;
     display: inline-block;
 }
-.shopping-cart .btn-buy, .shopping-cart .btn-installment {
-    width: 285px;
+.shopping-cart .btn-installment {
+    width: 260px;    
+}
+.shopping-cart .btn-buy {
+    width: 300px;
+    margin-right: 12px;
 }
 .shopping-cart .btn-buy p, .shopping-cart .btn-installment p {
-    font-size: 17px;
+    font-size: 16px;
 }
 
+
+@media only screen and (min-width: 1200px) {
+.nav-item .nav-link, .hotline p, .cart p {
+    padding: 0 6px !important;
+}
+}
 
 @media only screen and (max-width: 1200px) and (min-width: 992px) { 
 .nav-item {
@@ -464,9 +478,10 @@ footer {
 }
 .nav-item .nav-link, .hotline p, .cart p {
     font-size: 12px;
+    padding: 0px 6px !important;
 }
 .hotline p, .cart p {
-    margin-top: -3px;
+    margin-top: -2px;
 }
 .hotline i, .cart i {
     padding-top: 10px;
@@ -525,12 +540,22 @@ footer {
     padding: 0;
     text-align: center;
 }
+.nav-link p{
+    font-size: 13px;
+    padding: 0 4px;
+}
+.hotline .nav-link, .cart .nav-link {
+    padding: 13px 8px 0 8px;
+}
 .hotline p, .cart p {
     padding: 0;
 }
 .btn-buy {
     width: 80%;
     margin-bottom: 10px;
+}
+.details-page .btn-buy {
+    margin-right: 0;
 }
 .btn-installment {
     width: 80%;
@@ -574,11 +599,11 @@ footer {
     margin-left: 180px;
 }
 .nav-item {
-    padding: 4px;
+    padding: 0 10px;
     text-align: center;
 }
-.hotline p, .cart p {
-    padding: 6px 6px 0px 6px;
+.hotline .nav-link, .cart .nav-link {
+    margin-top: 5px; 
 }
 .shopping-cart .product-buy {
     text-align: center;
