@@ -18,7 +18,7 @@ class CategoryFilter extends Component {
             categoriesList = categories.map((category, index) => {
                 return (
                     <Link 
-                    to={`/${category.category_name}` }
+                    to={`category-${category.category_name}` }
                         onClick= {() => this.onFilterCategory(category.id)}
                     key={index} >
                         <img src={category.category_image} alt="" />

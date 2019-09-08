@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { actFilterCategory } from '../../actions/index';
 class NavHeader extends Component {
     onFilterCategory = (cate) => {

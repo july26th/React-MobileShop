@@ -11,8 +11,8 @@ class Category extends Component {
                     <div className="container">
                         <CategoryFilter />
                         <Switch>
-                           {/* <Route path="/category" exact component={CategoryProductList} /> */}
-                            <Route  path="/:id" match  component={CategoryProductList} />
+                           <Route path="/category" exact component={CategoryProductList} />
+                            <Route  path="/category-:id" match  component={CategoryProductList} />
                         </Switch>
 
                     </div>

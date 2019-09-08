@@ -6,7 +6,7 @@ class ProductItem extends Component {
         const { id, product_name, product_img, product_price } = this.props.product;
         return (
             <div className="col-md-4 col-6 product-item border-right">
-                <NavLink to={`/details-product/${id}`}>
+                <NavLink to={`/details-${id}`}>
                 <img className="product-img" src={product_img} alt="" />
                 <div className="product-info p-2">
                     <p className="product-name">{product_name}</p>

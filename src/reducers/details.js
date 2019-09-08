@@ -5,7 +5,6 @@ const details = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_DETAILS_PRODUCT:
                 state = action.product;
-                console.log(action);
                 return {...state};
         default: return {...state}
     }

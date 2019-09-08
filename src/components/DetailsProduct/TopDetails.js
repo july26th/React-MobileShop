@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+
 class TopDetails extends Component {
 
     render() {
+        const { product_name, product_img, product_price } = this.props.details;
         return (
             <div className="container details-product">
                 <div className="product-name">
-                    <h3>Điện thoại IPhone XS</h3>
+                    <h3>Điện thoại {product_name}</h3>
                 </div>
                 <div className="row border-bottom">
                     <div className="col-md-4">
-                        <img src="img/item/iphonex.png" className="w-100" alt="" />
+                        <img src={product_img} className="w-100" alt="" />
                         <div className="details-option text-center m-3">
                             <a href><img src="img/detail/360.png" alt="" />
                                 <p>Ảnh 360 độ</p>
@@ -28,7 +31,7 @@ class TopDetails extends Component {
                     <div className="col-md-5">
                         <div className="float-right pt-1">Còn hàng</div>
                         <div className="product-price">
-                            <h4>7.390.000đ</h4>
+                            <h4>{product_price}đ</h4>
                         </div>
                         <div className="choose-colors">
                             <p>Bạn đang xem phiên bản: <b>Đỏ</b></p>
@@ -83,5 +86,16 @@ class TopDetails extends Component {
     }
 }
 
-export default TopDetails;
+const mapStateToProps = state => {
+    return {
+        details: state.details
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopDetails);
 
