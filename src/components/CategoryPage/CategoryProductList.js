@@ -7,14 +7,13 @@ class CategoryProductList extends Component {
     render() {
         const { products, filters } = this.props;
         var productsList = "";
+        console.log(this.props.match);
         if (products) {
-            if (filters) {
+            if (filters && filters !== "All") {
                 productsList = products.map((product, index) => {
-                    if (product.category_id == filters) {
-                        return (
-                            <CategoryProductItem key={index} product={product} />
-                        );
-                    }
+                    return (product.category_id == filters) ? 
+                            (<CategoryProductItem key={index} product={product} />) 
+                            : "";
                 });
             }
             else {

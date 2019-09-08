@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { actFetchProductsRequest, actFetchCategoriesRequest, actFilterCategory } from '../../actions/index';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class CategoryFilter extends Component {
     componentDidMount() {
         this.props.fetchAllProducts();
@@ -12,13 +12,13 @@ class CategoryFilter extends Component {
     }
     render() {
         const { products, categories, filters } = this.props;
-  
+        
         var categoriesList = "";
         if (categories) {
             categoriesList = categories.map((category, index) => {
                 return (
                     <Link 
-                    //to={`/category/${category.category_name}`}
+                    to={`/${category.category_name}` }
                         onClick= {() => this.onFilterCategory(category.id)}
                     key={index} >
                         <img src={category.category_image} alt="" />
@@ -28,8 +28,9 @@ class CategoryFilter extends Component {
             });
         }
         return (
-
+            
             <React.Fragment>
+                
                 <div className="category-list d-flex py-3">
                     {categoriesList}
                 </div>

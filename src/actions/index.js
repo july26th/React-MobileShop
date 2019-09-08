@@ -37,3 +37,19 @@ export const actFilterCategory = (filter) => {
         filter: filter
     }
 };
+
+
+export const actFetchDetailsProductRequest = (id) => {
+    return dispatch => {
+        return callApi(`products/${id}`, 'GET', null).then(res => {
+            dispatch(actFetchDetailsProduct(res.data));
+        });
+    };
+}
+
+export const actFetchDetailsProduct = (product) => {
+    return {
+        type : Types.GET_DETAILS_PRODUCT,
+        product
+    }
+}

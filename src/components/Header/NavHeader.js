@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';import { connect } from 'react-redux';
+import { actFilterCategory } from '../../actions/index';
 class NavHeader extends Component {
-
+    onFilterCategory = (cate) => {
+        this.props.onFilterCategory(cate);
+     }
     render() {
 
         return (
@@ -14,7 +17,7 @@ class NavHeader extends Component {
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item active">
                                 <i className="fas fa-mobile-alt" />
-                                <NavLink className="nav-link" to="/category">
+                                <NavLink className="nav-link" to="/category" onClick={() => this.onFilterCategory("All")}>
                                     Điện thoại
                                 </NavLink>
                               
@@ -49,5 +52,16 @@ class NavHeader extends Component {
     }
 }
 
-export default NavHeader;
+const mapStateToProps = state => {
+    return {
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onFilterCategory: (cate) => {
+            dispatch(actFilterCategory(cate));
+        },
+    }
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(NavHeader);

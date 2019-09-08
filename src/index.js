@@ -13,6 +13,8 @@ const store = createStore(
     composeEnhancer(applyMiddleware(thunk)));
 
 ReactDOM.render(
-    <Provider store={store}><Router><App /></Router> </Provider>
+    <Provider store={store}>
+        <Router><App /></Router> 
+        </Provider>
 , document.getElementById('root'));
 serviceWorker.unregister();

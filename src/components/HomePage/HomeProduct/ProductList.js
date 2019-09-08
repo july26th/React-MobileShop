@@ -14,7 +14,6 @@ class ProductList extends Component {
                 if (count < 3) {
                     if (product.category_id == categoryId) {
                         count++;
-                        console.log(count);
                         return (
                             <ProductItem
                                 key={key}
