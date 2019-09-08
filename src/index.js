@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const store = createStore(
     appReducers,
-    composeEnhancer(applyMiddleware(thunk)));
+    applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
